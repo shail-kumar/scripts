@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Formats the name of a file of downloaded research paper.
+"""Formats the name of a file of downloaded research paper / book.
 
 Created on 2023-06-20 00:21:11
 
@@ -13,7 +13,17 @@ import os
 import sys
 import shutil
 
-library_dir = "/home/main_library/"
+# Path to main library
+library_dir = os.path.expanduser('~/')+'main_library/'
+os.makedirs(library_dir, exist_ok=True)
+
+# Path to save research articles
+article_dir = library_dir + 'articles/'
+os.makedirs(article_dir, exist_ok=True)
+
+# Path to save books
+book_dir = library_dir + 'books/'
+os.makedirs(book_dir, exist_ok=True)
 
 input_file = sys.argv[1]
 if os.path.isfile(input_file):
@@ -64,10 +74,10 @@ if doc_type == "Y" or doc_type == "":
 	output_file =  final_name + '-' + title + '.pdf'
 	shutil.copy2(input_file, output_file)
 
-	os.rename(input_file, library_dir + "/articles/" + output_file)
+	os.rename(input_file, article_dir + output_file)
 	# ~ os.link(input_file, output_file) # Creates hard link
 	
-	print(f"File renamed to {output_file}, and one copy is put in {library_dir}articles/")
+	print(f"File renamed to {output_file}, and one copy is put in {article_dir}")
 
 
 elif doc_type == "n":
@@ -97,8 +107,8 @@ elif doc_type == "n":
 	output_file =  final_name+'.pdf'
 	shutil.copy2(input_file, output_file)
 
-	os.rename(input_file, library_dir + "/books/" + output_file)
+	os.rename(input_file, book_dir + output_file)
 	# ~ output_file = library_dir + "/books/" + final_name+'.pdf'
 	# ~ os.link(input_file, output_file) # Creates hard link
 
-	print(f"File renamed to {final_name+'.pdf'}, and one copy is put in {library_dir}books/")
+	print(f"File renamed to {final_name+'.pdf'}, and one copy is put in {book_dir}")
