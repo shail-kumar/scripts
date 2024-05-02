@@ -8,14 +8,14 @@ Created on 2023-06-20 00:21:11
 @author: Shailendra K Rathor
 
 Usage:
-Enable execution permission (i.e., $ chmod +x format_file.py,  on linux terminal). Add the file path to environment variable PATH. Rename
+Enable execution permission (i.e., $ chmod +x format_filename.py,  on linux terminal). Add the file path to environment variable PATH. Rename
 the intended file using the following command following the instructions
-$ foramt_file.py file_to_rename.pdf
+$ format_filename.py file_to_rename.pdf
 
 Or put this file in the same directory where the file to rename is kept.
-$ ./foramt_file.py file_to_rename.pdf
+$ ./format_filename.py file_to_rename.pdf
 or
-$ python format_file.py file_to_rename.pdf
+$ python format_filename.py file_to_rename.pdf
 
 """
 
